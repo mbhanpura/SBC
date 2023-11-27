@@ -1,4 +1,4 @@
-# cp-demo
+
 
 # Setting up Confluent Platform with Health+
 
