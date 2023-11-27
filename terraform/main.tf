@@ -15,7 +15,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  cluster_name = "${var.name}-${random_string.suffix.result}"
+  cluster_name = "${var.name}-eks"
 }
 
 resource "random_string" "suffix" {
@@ -70,7 +70,7 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t3.small"]
+      instance_types = ["${var.instance_type}"]
 
       min_size     = 1
       max_size     = 3
@@ -80,7 +80,7 @@ module "eks" {
     two = {
       name = "node-group-2"
 
-      instance_types = ["t3.small"]
+      instance_types = ["${var.instance_type}"]
 
       min_size     = 1
       max_size     = 2
