@@ -1,5 +1,5 @@
 # cp-demo
-=======
+
 # Setting up Confluent Platform with Health+
 
 Clone this directory in your local directory using the following commands:
