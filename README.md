@@ -43,13 +43,18 @@ Once the EKS has been deployed run the following command to configure the kubect
 
 Inorder to sync Health+ with your CFK deployment you need to deploy a customized CFK. To do that follow the below steps:
 
-  1) If you are using Helm repo to deploy CFK, pull the CFK Chart:
-
+  1) Create the neccessary directory to store your CFK chart.
+    
     cd ..
 
     kubectl create namespace confluent
 
     mkdir -p cfk-kubernetes-operator
+ 
+  2) Pull the CFK Chart:
+
+    
+    helm repo add confluentinc https://packages.confluent.io/helm
 
     helm pull confluentinc/confluent-for-kubernetes \
     --untar \
