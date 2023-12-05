@@ -5,7 +5,7 @@
 Clone this directory in your local directory using the following commands:
 
     git clone https://github.com/mbhanpura/SBC-Demo.git
-    cd cp-demo-internal/cp-demo
+    cd SBC-Demo
 
 ## Deploying EKS Cluster in AWS
 Inorder to deploy an EKS cluster, one needs to simply run a ```terraform apply``` with the required paramters to deploy an EKS cluster in AWS.
