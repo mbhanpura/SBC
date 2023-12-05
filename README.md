@@ -99,7 +99,7 @@ The values.yaml file is in the *cfk-kubernetes-operator* directory.
 
        helm upgrade --install confluent-operator \
        confluentinc/confluent-for-kubernetes \
-       --values $PATH_TO_VALUES_FILE \
+       --values $PATH_TO_VALUES_FILE\values.yaml \
        --namespace confluent
 
 ## Deploying Confluent Platform
