@@ -16,7 +16,7 @@ Inorder to deploy an EKS cluster, one needs to simply run a ```terraform apply``
 In order to deploy the said EKS, run the following commands:
     
      
-    cd /terraform
+    cd terraform/
 
 Run the following command to spin up the resources
 
