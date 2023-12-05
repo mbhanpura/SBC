@@ -49,15 +49,18 @@ Inorder to sync Health+ with your CFK deployment you need to deploy a customized
 
     kubectl create namespace confluent
 
-    mkdir -p <CFK-home>
+    mkdir -p cfk-kubernetes-operator
 
     helm pull confluentinc/confluent-for-kubernetes \
     --untar \
-    --untardir=<CFK-home> \
-    --namespace <namespace>
-The values.yaml file is in the <CFK-home>/confluent-for-kubernetes directory.
+    --untardir=cfk-kubernetes-operator \
+    --namespace confluent
+The values.yaml file is in the *cfk-kubernetes-operator* directory.
  
  1) Create a copy of the values.yaml file to customize CFK configuration. Do not edit the default values.yaml file. Save your copy to any file location; we will refer to this location as ```<path-to-values-file>```
+
+        mkdir <path-to-values-file>
+        #Copy the values.yaml file from "cfk-kubernetes-operator/confluent-for-kubernetes" in the above created directory
 
  2) Within this _values.yaml_ file, make the following changes:
    
@@ -70,21 +73,21 @@ The values.yaml file is in the <CFK-home>/confluent-for-kubernetes directory.
 
     [2] Enable Telemetry Report for all Confluent Platform components.
 
-3) Inorder to authenticate into Health+ within our Confluent Cloud Account, we need to pass a secret containing our Confluent Cloud API Key and API Secret. Inorder to do that,follow the below steps: 
-   1) Create a file name _telemetry.txt_ and store the necessary information in the following format:
+1) Inorder to authenticate into Health+ within our Confluent Cloud Account, we need to pass a secret containing our Confluent Cloud API Key and API Secret. Inorder to do that,follow the below steps: 
+   1) Create a file name _telemetry.txt_ in the **\<path-to-values-file\>** directory and store the necessary information in the following format:
            
            api.key=<cloud_key>
            api.secret=<cloud_secret>
    2) Create a secret using the following command:
    
-          kubectl create secret generic -n confluent telemetry.txt --from-file=<path-to-base-dir>/telemetry.txt
+          kubectl create secret generic -n confluent telemetry.txt --from-file=<path-to-values-file>/telemetry.txt
 
-4) Reference this secret within the _values.yaml_ file in the follwowing way:
+2) Reference this secret within the _values.yaml_ file in the follwowing way:
    
         telemetry:
             secretRef: telemetry.txt
 
-5) Once the _values.yaml_ file has been updated, install the CFK operator passing the custom _values.yaml_ file as reference.
+3) Once the _values.yaml_ file has been updated, install the CFK operator passing the custom _values.yaml_ file as reference.
 
        helm upgrade --install confluent-operator \
        confluentinc/confluent-for-kubernetes \
