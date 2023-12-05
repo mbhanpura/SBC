@@ -4,7 +4,7 @@
 
 Clone this directory in your local directory using the following commands:
 
-    git clone https://github.com/mbhanpura/cp-demo-internal.git
+    git clone https://github.com/mbhanpura/SBC-Demo.git
     cd cp-demo-internal/cp-demo
 
 ## Deploying EKS Cluster in AWS
