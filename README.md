@@ -5,6 +5,9 @@
 Clone this directory in your local directory using the following commands:
 
     git clone https://github.com/mbhanpura/SBC-Demo.git
+
+Change the working directory
+
     cd SBC-Demo
 
 ## Deploying EKS Cluster in AWS
@@ -14,6 +17,9 @@ In order to deploy the said EKS, run the following commands:
     
      
     cd /terraform
+
+Run the following command to spin up the resources
+
     terraform apply \
     -var region='region_name'\
     -var name='unique_prefix'\
