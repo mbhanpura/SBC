@@ -64,9 +64,12 @@ The values.yaml file is in the *cfk-kubernetes-operator* directory.
  
  1) Create a copy of the values.yaml file to customize CFK configuration. Do not edit the default values.yaml file. Save your copy to any file location; we will refer to this location as ```<path-to-values-file>```
 
-        mkdir <path-to-values-file>
-        #Copy the values.yaml file from "cfk-kubernetes-operator/confluent-for-kubernetes" in the above created directory
-
+        export PATH_TO_VALUES_FILE=<path-to-values-file>
+   
+  
+        mkdir $PATH_TO_VALUES_FILE
+       
+    Copy the values.yaml file from "cfk-kubernetes-operator/confluent-for-kubernetes" in the above created directory
  2) Within this _values.yaml_ file, make the following changes:
    
         telemetry:
@@ -85,7 +88,7 @@ The values.yaml file is in the *cfk-kubernetes-operator* directory.
            api.secret=<cloud_secret>
    2) Create a secret using the following command:
    
-          kubectl create secret generic -n confluent telemetry.txt --from-file=<path-to-values-file>/telemetry.txt
+          kubectl create secret generic -n confluent telemetry.txt --from-file=$PATH_TO_VALUES_FILE/telemetry.txt
 
 2) Reference this secret within the _values.yaml_ file in the follwowing way:
    
@@ -96,7 +99,7 @@ The values.yaml file is in the *cfk-kubernetes-operator* directory.
 
        helm upgrade --install confluent-operator \
        confluentinc/confluent-for-kubernetes \
-       --values <path-to-values-file> \
+       --values $PATH_TO_VALUES_FILE \
        --namespace confluent
 
 ## Deploying Confluent Platform
