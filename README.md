@@ -24,7 +24,7 @@ Run the following command to spin up the resources
     terraform apply \
     -var="region=<region_name>" \
     -var="name=<unique_prefix>" \
-    -var="instance-type=<instance-type>"
+    -var="instance_type=<instance-type>"
 - region: Its the region in which you want to deploy your EKS cluster
 - name: unique identifier/prefix attached to your EKS cluster name and VPC created by terraform
 - instance-type: The EC2 instance type to be used for your EKS cluster
