@@ -68,8 +68,8 @@ spec:
   dataVolumeCapacity: 10Gi
   externalAccess:
     type: loadBalancer
-    loadBalancer:
-      domain: ##Domain_Name 
+    loadBalancer: test.io
+      
   dependencies:
     schemaRegistry:
       url: http://schemaregistry.confluent.svc.cluster.local:8081

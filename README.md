@@ -88,12 +88,12 @@ The values.yaml file is in the *cfk-kubernetes-operator* directory.
            api.secret=<cloud_secret>
    2) Create a secret using the following command:
    
-          kubectl create secret generic -n confluent telemetry.txt --from-file=$PATH_TO_VALUES_FILE/telemetry.txt
+          kubectl create secret generic -n confluent telemetry --from-file=telemetry.txt=$PATH_TO_VALUES_FILE/telemetry.txt
 
 2) Reference this secret within the _values.yaml_ file in the follwowing way:
    
         telemetry:
-            secretRef: telemetry.txt
+            secretRef: "telemetry"
 
 3) Once the _values.yaml_ file has been updated, install the CFK operator passing the custom _values.yaml_ file as reference.
 
