@@ -68,7 +68,8 @@ spec:
   dataVolumeCapacity: 10Gi
   externalAccess:
     type: loadBalancer
-    loadBalancer: test.io
+    loadBalancer: 
+      domain: test.io
       
   dependencies:
     schemaRegistry:
