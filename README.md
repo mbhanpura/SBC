@@ -169,8 +169,8 @@ Following are the two scripts to be used for the same:
 
 Steps to execute the following script:
 
-    chmod +x /sbc/delete_broker.sh
-    chmod +x /sbc/delete_node.sh
+    chmod +x ./sbc/delete_broker.sh
+    chmod +x ./sbc/delete_node.sh
     
     --If you want to delete a node run the following command
     ./sbc/delete_broker.sh -n <namespace>
